@@ -15,9 +15,9 @@ Values are scaled by 1000 internally:
 
 ## Usage
 ```cpp
-Fixed voltage(3.14f);
-Fixed offset(0.5f);
-Fixed result = voltage + offset;
+fixed voltage(3.14f);
+fixed offset(0.5f);
+fixed result = voltage + offset;
 float output = result.toFloat(); // 3.640f
 ```
 
