@@ -7,19 +7,59 @@ public:
     explicit fixed(float f) : value(f * 1000) {}
     
     fixed(int32_t v) : value(v * 1000) {}
-
-    fixed operator+(fixed o) const { return fixed::raw(value + o.value); }
     
-    fixed operator-(fixed o) const { return fixed::raw(value - o.value); }
-    fixed operator*(fixed o) const { return fixed::raw((value * o.value) / 1000); }
-    fixed operator/(fixed o) const { return fixed::raw((value * 1000) / o.value); }
 
-    float toFloat() const { return value / 1000.0f; }
-    int32_t toInt() const { return value / 1000; }
+    fixed operator+(fixed o) const { 
+        return fixed::raw(value + o.value); 
+    }
+    
+    fixed operator-(fixed o) const { 
+        return fixed::raw(value - o.value); 
+    }
+        
+    fixed operator*(fixed o) const { 
+        return fixed::raw((value * o.value) / 1000); 
+    }
+        
+    fixed operator/(fixed o) const { 
+        return fixed::raw((value * 1000) / o.value); 
+    }
+    
+    bool operator<=(fixed o) const {
+        return fixed::raw(value <= o.value);
+    }
+    
+    bool operator<(fixed o) const {
+        return fixed::raw(value < o.value);
+    }
+    
+    bool operator==(fixed o) const {
+        return fixed::raw(value == o.value);
+    }
+    
+    bool operator>(fixed o) const {
+        return fixed::raw(value > o.value);
+    }
+    
+    bool operator>=(fixed o) const {
+        return fixed::raw(value >= o.value);
+    }
 
 
-    static fixed raw(int32_t v) { fixed f(0); f.value = v; return f; }
+
+    float toFloat() const { 
+        return value / 1000.0f; }
+        
+    int32_t toInt() const { 
+        return value / 1000; }
+
+
+    static fixed raw(int32_t v) { //turns an int32_t into fixed
+        fixed f(0); 
+        f.value = v;
+        return f; }
 };
+
 
 int main() {
     
@@ -29,7 +69,6 @@ int main() {
     float result = z.toFloat(); 
     
 };
-
 
 
 
