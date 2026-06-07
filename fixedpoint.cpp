@@ -26,23 +26,23 @@ public:
     }
     
     bool operator<=(fixed o) const {
-        return fixed::raw(value <= o.value);
+        return (value <= o.value);
     }
     
     bool operator<(fixed o) const {
-        return fixed::raw(value < o.value);
+        return (value < o.value);
     }
     
     bool operator==(fixed o) const {
-        return fixed::raw(value == o.value);
+        return (value == o.value);
     }
     
     bool operator>(fixed o) const {
-        return fixed::raw(value > o.value);
+        return (value > o.value);
     }
     
     bool operator>=(fixed o) const {
-        return fixed::raw(value >= o.value);
+        return (value >= o.value);
     }
 
 
