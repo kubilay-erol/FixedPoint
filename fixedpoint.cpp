@@ -18,11 +18,13 @@ public:
     }
         
     fixed operator*(fixed o) const { 
-        return fixed::raw((value * o.value) / 1000); 
+        int64_t intermediate = static_cast<int64_t>(value) * o.value; 
+        return fixed::raw(static_cast<int32_t>(intermediate / 1000)); 
     }
-        
+
     fixed operator/(fixed o) const { 
-        return fixed::raw((value * 1000) / o.value); 
+         int64_t intermediate = static_cast<int64_t>(value) * 1000;
+        return fixed::raw(static_cast<int32_t>(intermediate / o.value)); 
     }
     
     bool operator<=(fixed o) const {
